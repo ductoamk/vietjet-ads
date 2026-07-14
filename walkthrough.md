@@ -29,7 +29,7 @@ Số điểm đổi thưởng trên ảnh và trong file CSV được ánh xạ 
 ## 2. Thiết kế Đồ họa trên Bộ ảnh Quảng cáo (Dynamic Ads Images)
 
 Mỗi chặng bay trong số 300 chuyến bay giờ đây sở hữu một **hình ảnh thiết kế riêng biệt và hoàn thiện** với các thuộc tính đồ họa:
-1. **Ảnh nền độc nhất (Unique Backgrounds)**: Tự động tìm kiếm ảnh phong cảnh/du lịch độ phân giải cao của 34 thành phố điểm đến từ Bing Image Search. Để tối ưu hóa tốc độ tải và bộ nhớ đệm, mỗi thành phố được tải về một nhóm gồm 5 ảnh nền khác nhau để các chặng bay luân phiên sử dụng, đảm bảo tính đa dạng và không bị lặp ảnh nền trong quảng cáo.
+1. **Ảnh nền độc nhất (Unique Backgrounds)**: Tự động tìm kiếm ảnh phong cảnh/du lịch độ phân giải cao của 34 thành phố điểm đến từ Bing Image Search. Để tối ưu hóa tốc độ tải và bộ nhớ đệm, mỗi thành phố được tải về một nhóm gồm 20 ảnh nền khác nhau để các chặng bay luân phiên sử dụng, đảm bảo tính đa dạng và không bị lặp ảnh nền trong quảng cáo.
 2. **Dải Banner đỏ Vietjet ở cạnh dưới**: Banner màu đỏ thương hiệu Vietjet (RGB: `153, 16, 10`) với độ trong suốt 92% (Opacity) giúp làm nổi bật thông tin chữ mà không che hoàn toàn cảnh nền.
 3. **Đường viền trang trí màu vàng**: Dải điểm nhấn màu vàng tươi (`#f8d022`) ngăn cách giữa ảnh nền và banner đỏ tạo cảm giác chuyên nghiệp.
 4. **Thông tin chặng bay bên trái**:
@@ -39,8 +39,8 @@ Mỗi chặng bay trong số 300 chuyến bay giờ đây sở hữu một **hì
    - Nhãn chữ: `"Đổi vé chỉ từ"`
    - Số điểm: **`X.XXX SkyPoints`** (ví dụ: `5.000 SkyPoints`) in đậm, cỡ chữ lớn, màu vàng kim nổi bật.
 6. **Watermark Badge (Góc trên bên phải)**:
-   - Bo góc màu vàng tươi độc đáo.
-   - Chữ thương hiệu màu đỏ: `vietjet Air` đóng vai trò định vị thương hiệu tinh tế.
+   - Khung Bo góc màu trắng nổi bật.
+   - Hình ảnh Logo Vietjet Air (PNG) chính thức sắc nét, thay thế hoàn toàn chữ viết thông thường.
 
 ---
 
@@ -56,10 +56,10 @@ Cấu trúc file [catalog_flight.csv](file:///c:/Users/ToaND/Python/Ads_Flight/c
 | 4 | `image[0].tag[0]` | `Vietjet` | Thẻ tên hãng |
 | 5 | `origin_airport` | `SGN` | Sân bay đi |
 | 6 | `destination_airport` | `HAN` | Sân bay đến |
-| 7 | `description` | `Bay cùng Vietjet từ TP. Hồ Chí Minh đến Hà Nội...` | Mô tả chặng bay |
-| 8 | **`price`** | `5000.00 VND` | Số điểm quy đổi (ở dạng số thực + VND để Meta Ads chấp nhận) |
+| 7 | `description` | `TP. Hồ Chí Minh đến Hà Nội` | Mô tả chặng bay ngắn gọn |
+| 8 | **`price`** | `1813232.00 VND` | Giá vé bằng tiền mặt thực tế của chặng bay (kèm đơn vị VND) |
 | 10 | `url` | `https://www.vietjetair.com/vi/select-flight` | Đường dẫn trang tìm kiếm chuyến bay của Vietjet |
-| 12 | **`one_way_price`** | `5000.00 VND` | Giá vé một chiều ở dạng điểm |
+| 12 | **`one_way_price`** | `1813232.00 VND` | Giá vé một chiều bằng tiền mặt thực tế |
 | 14 | `custom_label_0` | `Domestic` | Phân loại trong nước / quốc tế |
 | 16 | **`custom_label_2`** | `5.000 SkyPoints` | Chuỗi ký tự điểm hiển thị (Dùng làm thẻ động trong Ad Copy) |
 | 23 | `applink.android_package`| `com.vietjetair.vietjetair` | Package name ứng dụng Android |
